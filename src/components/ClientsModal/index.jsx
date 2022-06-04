@@ -1,25 +1,48 @@
 import People from "../../assets/people.svg";
 import Close from "../../assets/close.svg";
 import Inputs from "../Inputs";
-import api from "../../services/api"
-import './style.css';
+import api from "../../services/api";
 import { useState } from "react";
+import "./style.css";
 
 function ClientsModal({ open, handleClose }) {
-    const [form, setForm] = useState({ name: '', email: '', cpf: '', phone: '', address: '', complement: '', cep: '', district: '', city: '', uf: ''})
+    const [form, setForms] = useState({
+        name: "",
+        email: "",
+        cpf: "",
+        phone: "",
+        address: "",
+        complement: "",
+        cep: "",
+        district: "",
+        city: "",
+        uf: ""
+    })
 
     async function handleSubmit(e) {
-        e.preventDefaul()
+        e.preventDefault();
         try {
             if (!form.name || !form.email || !form.cpf || !form.phone) {
                 return;
             }
-            const response = await api.post('/registerClient', {
-                ...form
+
+            setForms({
+                name: "",
+                email: "",
+                cpf: "",
+                phone: "",
+                address: "",
+                complement: "",
+                cep: "",
+                district: "",
+                city: "",
+                uf: ""
             });
+            handleApi();
+
         } catch (error) {
             console.log(error)
-        } 
+        }
 
     }
 
@@ -38,12 +61,12 @@ function ClientsModal({ open, handleClose }) {
                 email: form.email,
                 cpf: form.cpf,
                 phone: form.phone,
-                address: form.address, 
-                complement: form.complement, 
+                address: form.address,
+                complement: form.complement,
                 cep: form.cep,
                 district: form.district,
                 city: form.city,
-                uf: form.uf 
+                uf: form.uf
             });
 
             console.log(response);
@@ -55,7 +78,7 @@ function ClientsModal({ open, handleClose }) {
         <>
             {open &&
                 <div className="register-clients">
-                    <div className="container">
+                    <div className="containerClients">
                         <div className="container-header">
                             <div className="theme-modal">
                                 <img src={People} />
@@ -178,7 +201,7 @@ function ClientsModal({ open, handleClose }) {
 
                             <div className="buttons">
                                 <button className="cancel">Cancelar</button>
-                                <button className="apply">Aplicar</button>
+                                <button className="apply" type="submit">Aplicar</button>
                             </div>
                         </form>
                     </div>

@@ -10,10 +10,10 @@
     background: rgba(145, 154, 150, 0.3);
 }
 
-.register-clients .container {
-    width: 600px;
-    height: 60px;
-
+.containerClients {
+    width: 550px;
+    height: 700px;
+    margin-top: 50px;
     padding: 30.18px 30.67px 40.78px 30.67px;
 
     display: flex;
@@ -24,7 +24,7 @@
     border-radius: 30px;
 }
 
-.container img {
+.container-header img {
     width: 32px;
     height: 29.69px;
 
@@ -91,9 +91,9 @@
     gap: 20px;
 }
 
-.buttons{
+.buttons {
     margin-top: 57.81px;
-    
+
     display: flex;
     gap: 24px;
 }

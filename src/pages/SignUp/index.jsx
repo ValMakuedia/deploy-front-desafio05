@@ -140,7 +140,7 @@ function SignUp() {
 	}
 
 	return (
-		<div className='container'>
+		<div className='containerSignUp'>
 			<Stepper obj={obj} countState={countState} />
 
 			{login.infos ? (
@@ -148,7 +148,7 @@ function SignUp() {
 					<div className='column'>
 						<CardSignUp
 							header='Adicione seus dados'
-							// esta no lugar errado, olhar figma
+						// esta no lugar errado, olhar figma
 						>
 							<Inputs
 								type='text'
